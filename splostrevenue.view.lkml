@@ -17,15 +17,18 @@ view: splostrevenue {
     sql: ${TABLE}.Cumulative ;;
   }
 
-  dimension: date__received {
-    type: string
+  dimension_group: date__received {
+    type: time
+    timeframes: [
+      raw,
+      time,
+      date,
+      week,
+      month,
+      quarter,
+      year
+    ]
     sql: ${TABLE}.Date__Received ;;
-    label: "Month"
-  }
-
-  dimension: month_received {
-    type: date
-    sql:concat( ${TABLE}.Date__Received, "-", ${TABLE}.Year_Received)    ;;
   }
 
   dimension: delta_grant {
@@ -47,14 +50,18 @@ view: splostrevenue {
     sql: ${TABLE}.inserted_at ;;
   }
 
-  dimension: month_earned {
-    type: string
+  dimension_group: month_earned {
+    type: time
+    timeframes: [
+      raw,
+      time,
+      date,
+      week,
+      month,
+      quarter,
+      year
+    ]
     sql: ${TABLE}.Month_Earned ;;
-  }
-
-  dimension: revenue_id {
-    type: number
-    sql: ${TABLE}.RevenueID ;;
   }
 
   dimension: splost_v_amount {
@@ -62,23 +69,8 @@ view: splostrevenue {
     sql: ${TABLE}.Splost_V_Amount ;;
   }
 
-  dimension: year_earned {
-    type: number
-    sql: ${TABLE}.Year_Earned ;;
-  }
-
-  dimension: year_received {
-    type: number
-    sql: ${TABLE}.Year_Received ;;
-  }
-
   measure: count {
     type: count
     drill_fields: [id]
-  }
-
-  measure: revenuebymonth {
-    type: sum
-    sql: ${splost_v_amount} ;;
   }
 }
