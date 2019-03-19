@@ -15,7 +15,8 @@ view: splostprojects {
   dimension: _of_payments {
     type: number
 
-    sql:  format(${TABLE}."%_of_Payments"   , 'P0') ;;
+    sql:  ${TABLE}."%_of_Payments";;
+    value_format: "0.00%"
   }
 
   dimension: adjusted_contract_price {
