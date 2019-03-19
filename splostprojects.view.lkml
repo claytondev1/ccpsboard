@@ -70,6 +70,7 @@ view: splostprojects {
 
   dimension: contract_price {
     type: number
+
     sql: ${TABLE}.Contract_Price ;;
   }
 
