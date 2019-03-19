@@ -20,6 +20,7 @@ view: splostrevenue {
   dimension: date__received {
     type: string
     sql: ${TABLE}.Date__Received ;;
+    label: "Month"
   }
 
   dimension: delta_grant {
