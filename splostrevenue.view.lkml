@@ -70,4 +70,9 @@ view: splostrevenue {
     type: count
     drill_fields: [id]
   }
+
+  measure: revenuebymonth {
+    type: count_distinct
+    sql: ${date__received} ;;
+  }
 }
