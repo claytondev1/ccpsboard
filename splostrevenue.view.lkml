@@ -29,6 +29,7 @@ view: splostrevenue {
       year
     ]
     sql: ${TABLE}.Date__Received ;;
+    label: "Received"
   }
 
   dimension: delta_grant {
@@ -72,5 +73,10 @@ view: splostrevenue {
   measure: count {
     type: count
     drill_fields: [id]
+  }
+
+  measure: avgrevenuebymonth {
+    type: average
+    sql: ${TABLE}.Splost_V_Amount ;;
   }
 }
