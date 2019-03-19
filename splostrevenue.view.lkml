@@ -72,7 +72,7 @@ view: splostrevenue {
   }
 
   measure: revenuebymonth {
-    type: count_distinct
-    sql: ${date__received} ;;
+    type: sum
+    sql: ${splost_v_amount} ;;
   }
 }
