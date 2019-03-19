@@ -23,6 +23,11 @@ view: splostrevenue {
     label: "Month"
   }
 
+  dimension: month_received {
+    type: date
+    sql:concat( ${TABLE}.Date__Received, "-", ${TABLE}.Year_Received)    ;;
+  }
+
   dimension: delta_grant {
     type: number
     sql: ${TABLE}.Delta_Grant ;;
