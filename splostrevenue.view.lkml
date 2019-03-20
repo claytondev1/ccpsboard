@@ -72,7 +72,7 @@ view: splostrevenue {
 
   measure: count {
     type: count
-    drill_fields: [id]
+
   }
 
   measure: avgrevenuebymonth {

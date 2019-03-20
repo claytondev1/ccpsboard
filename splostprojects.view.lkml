@@ -145,6 +145,26 @@ view: splostprojects {
 
   measure: count {
     type: count
-    drill_fields: [id]
+
   }
+
+  measure: tcontractprice {
+    type: sum
+    sql: ${TABLE}.Contract_Price ;;
+    label: "Contract Price"
+  }
+
+  measure: tadjusted_contract_price {
+    type: sum
+    sql: ${TABLE}.Adjusted_Contract_Price ;;
+    label: "Adjusted Contract Price"
+
+  }
+
+  measure: ttotal_amount_of_payments {
+    type: sum
+    sql: ${TABLE}.Total_Amount_of_Payments ;;
+    label: "Total Amount Of Payments"
+  }
+
 }
