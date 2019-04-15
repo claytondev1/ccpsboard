@@ -22,6 +22,7 @@ view: splostprojects {
   dimension: adjusted_contract_price {
     type: number
     sql: ${TABLE}.Adjusted_Contract_Price ;;
+    value_format_name:  usd
   }
 
   dimension: architech_ {
@@ -72,6 +73,7 @@ view: splostprojects {
     type: number
 
     sql: ${TABLE}.Contract_Price ;;
+    value_format_name:  usd
   }
 
   dimension: contractor_ {
@@ -141,6 +143,7 @@ view: splostprojects {
   dimension: total_amount_of_payments {
     type: number
     sql: ${TABLE}.Total_Amount_of_Payments ;;
+    value_format_name:  usd
   }
 
   measure: count {
@@ -152,19 +155,42 @@ view: splostprojects {
     type: sum
     sql: ${TABLE}.Contract_Price ;;
     label: "Contract Price"
+    value_format_name:  usd
+    drill_fields: [splostdetail*]
   }
 
   measure: tadjusted_contract_price {
     type: sum
     sql: ${TABLE}.Adjusted_Contract_Price ;;
     label: "Adjusted Contract Price"
-
+    value_format_name:  usd
+    drill_fields: [splostdetail*]
   }
 
   measure: ttotal_amount_of_payments {
     type: sum
     sql: ${TABLE}.Total_Amount_of_Payments ;;
     label: "Total Amount Of Payments"
+    value_format_name:  usd
+    drill_fields: [splostdetail*]
+  }
+
+  set: splostdetail  {
+
+    fields: [
+      project
+      , scope_of_work
+      ,contractor_
+      ,start_date
+      ,comp_date
+      ,_of_approved_change_orders
+      ,funding_source
+      ,_of_payments
+      ,tcontractprice
+      ,tadjusted_contract_price
+      ,ttotal_amount_of_payments
+
+    ]
   }
 
 }

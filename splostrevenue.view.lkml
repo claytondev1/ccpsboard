@@ -74,6 +74,16 @@ view: splostrevenue {
     type: count
 
   }
+  measure: total_splost_revenue {
+    type: sum
+    sql: ${splost_v_amount} ;;
+    value_format_name: usd
+  }
+  measure: total_delta_grant{
+    type: sum
+    sql: ${delta_grant} ;;
+    value_format_name: usd
+  }
 
   measure: avgrevenuebymonth {
     type: average
