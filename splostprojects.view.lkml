@@ -7,16 +7,17 @@ view: splostprojects {
     sql: ${TABLE}.id ;;
   }
 
-  dimension: _of_approved_change_orders {
+  dimension: no_of_approved_change_orders {
     type: number
     sql: ${TABLE}."#_of_Approved_Change_Orders" ;;
   }
 
-  dimension: _of_payments {
+  dimension: percentage_of_payments {
     type: number
 
     sql:  ${TABLE}."%_of_Payments";;
     value_format: "0.00%"
+    label: "% Of Payments"
   }
 
   dimension: adjusted_contract_price {
@@ -25,7 +26,7 @@ view: splostprojects {
     value_format_name:  usd
   }
 
-  dimension: architech_ {
+  dimension: architech {
     type: string
     sql: ${TABLE}.Architech_ ;;
   }
@@ -72,11 +73,12 @@ view: splostprojects {
   dimension: contract_price {
     type: number
 
-    sql: ${TABLE}.Contract_Price ;;
+    sql: isnull(${TABLE}.Contract_Price,0) ;;
     value_format_name:  usd
+
   }
 
-  dimension: contractor_ {
+  dimension: contractor {
     type: string
     sql: ${TABLE}.Contractor_ ;;
   }
@@ -153,7 +155,7 @@ view: splostprojects {
 
   measure: tcontractprice {
     type: sum
-    sql: ${TABLE}.Contract_Price ;;
+    sql:${contract_price};;
     label: "Contract Price"
     value_format_name:  usd
     drill_fields: [splostdetail*]
@@ -180,12 +182,13 @@ view: splostprojects {
     fields: [
       project
       , scope_of_work
-      ,contractor_
+      ,contractor
+      ,architech
       ,start_date
       ,comp_date
-      ,_of_approved_change_orders
+      ,no_of_approved_change_orders
       ,funding_source
-      ,_of_payments
+      ,percentage_of_payments
       ,tcontractprice
       ,tadjusted_contract_price
       ,ttotal_amount_of_payments

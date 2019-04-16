@@ -79,7 +79,7 @@ view: splostprojects_in_design {
 
   dimension: estimated_contract_value {
     type: number
-    sql: ${TABLE}.Estimated_Contract_Value ;;
+    sql: isnull(${TABLE}.Estimated_Contract_Value,0) ;;
   }
 
   dimension: estimated_start_date {
