@@ -107,3 +107,7 @@ explore: splostprojects
   label: " SPLOST Projects"
 
 }
+
+explore: splostprojects_in_design {
+  label: "SPLOST Project in Design"
+}
