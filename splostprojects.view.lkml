@@ -157,7 +157,7 @@ view: splostprojects {
     type: sum
     sql:${contract_price};;
     label: "Contract Price"
-    value_format_name:  usd
+    value_format_name:  usd_0
     drill_fields: [splostdetail*]
   }
 
@@ -165,7 +165,7 @@ view: splostprojects {
     type: sum
     sql: ${TABLE}.Adjusted_Contract_Price ;;
     label: "Adjusted Contract Price"
-    value_format_name:  usd
+    value_format_name:  usd_0
     drill_fields: [splostdetail*]
   }
 
@@ -173,7 +173,7 @@ view: splostprojects {
     type: sum
     sql: ${TABLE}.Total_Amount_of_Payments ;;
     label: "Total Amount Of Payments"
-    value_format_name:  usd
+    value_format_name:  usd_0
     drill_fields: [splostdetail*]
   }
 

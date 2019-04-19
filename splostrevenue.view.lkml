@@ -10,11 +10,13 @@ view: splostrevenue {
   dimension: average {
     type: number
     sql: ${TABLE}.Average ;;
+    value_format_name: usd_0
   }
 
   dimension: cumulative {
     type: number
     sql: ${TABLE}.Cumulative ;;
+    value_format_name: usd_0
   }
 
   dimension_group: date__received {
@@ -35,6 +37,7 @@ view: splostrevenue {
   dimension: delta_grant {
     type: number
     sql: ${TABLE}.Delta_Grant ;;
+    value_format_name: usd_0
   }
 
   dimension_group: inserted {
@@ -68,6 +71,7 @@ view: splostrevenue {
   dimension: splost_v_amount {
     type: number
     sql: ${TABLE}.Splost_V_Amount ;;
+    value_format_name: usd_0
   }
 
   measure: count {
@@ -77,16 +81,17 @@ view: splostrevenue {
   measure: total_splost_revenue {
     type: sum
     sql: ${splost_v_amount} ;;
-    value_format_name: usd
+    value_format_name: usd_0
   }
   measure: total_delta_grant{
     type: sum
     sql: ${delta_grant} ;;
-    value_format_name: usd
+    value_format_name: usd_0
   }
 
   measure: avgrevenuebymonth {
     type: average
     sql: ${TABLE}.Splost_V_Amount ;;
+    value_format_name: usd_0
   }
 }
