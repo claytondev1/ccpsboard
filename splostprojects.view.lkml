@@ -56,20 +56,11 @@ view: splostprojects {
     sql: ${TABLE}.Architech_Zipcode ;;
   }
 
-  dimension_group: comp {
-    type: time
-    timeframes: [
-      raw,
-      time,
-      date,
-      week,
-      month,
-      quarter,
-      year
-    ]
-    sql: ${TABLE}."Comp#_Date" ;;
-    html: {{ rendered_value |  "%m/%d/%Y" }} ;;
+  dimension: comp_date {
+    type: string
+    sql: ${TABLE}.Comp_Date ;;
   }
+
 
   dimension: contract_price {
     type: number
