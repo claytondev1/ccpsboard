@@ -14,9 +14,9 @@ view: splostprojects {
 
   dimension: percentage_of_payments {
     type: number
-
-    sql:  ${TABLE}."%_of_Payments";;
-    value_format: "0.00%"
+    sql: ${total_amount_of_payments}/${adjusted_contract_price}  ;;
+   # sql:  ${TABLE}."%_of_Payments";;
+    value_format: "0%"
     label: "% Of Payments"
   }
 
@@ -68,6 +68,7 @@ view: splostprojects {
       year
     ]
     sql: ${TABLE}."Comp#_Date" ;;
+
   }
 
   dimension: contract_price {
