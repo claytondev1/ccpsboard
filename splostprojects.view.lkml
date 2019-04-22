@@ -58,7 +58,7 @@ view: splostprojects {
 
   dimension: comp_date {
     type: string
-    sql: ${TABLE}.Comp_Date ;;
+    sql: ${TABLE}.Comp#_Date ;;
   }
 
 
