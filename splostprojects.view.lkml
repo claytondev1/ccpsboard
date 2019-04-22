@@ -68,7 +68,7 @@ view: splostprojects {
       year
     ]
     sql: ${TABLE}."Comp#_Date" ;;
-
+    html: {{ rendered_value |  "%m/%d/%Y" }} ;;
   }
 
   dimension: contract_price {
